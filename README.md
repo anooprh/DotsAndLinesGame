@@ -9,4 +9,4 @@ Go to your project directory,
     npm install 
     node index.js   
     
-  
+Go to http://localhost:3000/
