@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    var url = window.location.protocol + "//" + window.location.hostname;
+    var url = window.location.protocol + "//" + window.location.hostname + window.location.port;
     var socket = io.connect(url);
 
     $('.horizontal-line, .vertical-line').click(function(){
