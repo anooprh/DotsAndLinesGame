@@ -10,181 +10,185 @@
 </head>
 <body>
 <div class="overlay"></div>
-<div class="game-pre">
-    <button class="start-btn">Start</button>
-    <dialog class="modal">Finding an opponent . . Please Wait</dialog>
-</div>
-<div class="game-container">
-    <div class="row">
-        <div class="row-head">
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="0" c1="0" r2="0" c2="1"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="0" c1="1" r2="0" c2="2"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="0" c1="2" r2="0" c2="3"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="0" c1="3" r2="0" c2="4"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="0" c1="4" r2="0" c2="5"></div>
-            <div class="empty-dot"></div>
+<div class="container">
+    <div class="game-pre">
+        <button class="start-btn">Click Me to start the game</button>
+        <dialog class="modal">
+            <p>Finding an opponent . . . Please Wait</p>
+            <img class="spinner" src="ajax-loader.gif" alt="Loading"/>
+        </dialog>
+    </div>
+    <div class="game-container">
+        <div class="row">
+            <div class="row-head">
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="0" c1="0" r2="0" c2="1"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="0" c1="1" r2="0" c2="2"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="0" c1="2" r2="0" c2="3"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="0" c1="3" r2="0" c2="4"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="0" c1="4" r2="0" c2="5"></div>
+                <div class="empty-dot"></div>
+            </div>
+            <div class="row-body">
+                <div class="vertical-line" r1="0" c1="0" r2="1" c2="0"></div>
+                <div class="box-body" x="0" y="0"></div>
+                <div class="vertical-line" r1="0" c1="1" r2="1" c2="1"></div>
+                <div class="box-body" x="0" y="1"></div>
+                <div class="vertical-line" r1="0" c1="2" r2="1" c2="2"></div>
+                <div class="box-body" x="0" y="2"></div>
+                <div class="vertical-line" r1="0" c1="3" r2="1" c2="3"></div>
+                <div class="box-body" x="0" y="3"></div>
+                <div class="vertical-line" r1="0" c1="4" r2="1" c2="4"></div>
+                <div class="box-body" x="0" y="4"></div>
+                <div class="vertical-line" r1="0" c1="5" r2="1" c2="5"></div>
+            </div>
         </div>
-        <div class="row-body">
-            <div class="vertical-line" r1="0" c1="0" r2="1" c2="0"></div>
-            <div class="box-body" x="0" y="0"></div>
-            <div class="vertical-line" r1="0" c1="1" r2="1" c2="1"></div>
-            <div class="box-body"  x="0" y="1"></div>
-            <div class="vertical-line" r1="0" c1="2" r2="1" c2="2"></div>
-            <div class="box-body"  x="0" y="2"></div>
-            <div class="vertical-line" r1="0" c1="3" r2="1" c2="3"></div>
-            <div class="box-body"  x="0" y="3"></div>
-            <div class="vertical-line" r1="0" c1="4" r2="1" c2="4"></div>
-            <div class="box-body"  x="0" y="4"></div>
-            <div class="vertical-line" r1="0" c1="5" r2="1" c2="5"></div>
+
+        <div class="row">
+            <div class="row-head">
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="1" c1="0" r2="1" c2="1"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="1" c1="1" r2="1" c2="2"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="1" c1="2" r2="1" c2="3"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="1" c1="3" r2="1" c2="4"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="1" c1="4" r2="1" c2="5"></div>
+                <div class="empty-dot"></div>
+            </div>
+            <div class="row-body">
+                <div class="vertical-line" r1="1" c1="0" r2="2" c2="0"></div>
+                <div class="box-body" x="1" y="0"></div>
+                <div class="vertical-line" r1="1" c1="1" r2="2" c2="1"></div>
+                <div class="box-body" x="1" y="1"></div>
+                <div class="vertical-line" r1="1" c1="2" r2="2" c2="2"></div>
+                <div class="box-body" x="1" y="2"></div>
+                <div class="vertical-line" r1="1" c1="3" r2="2" c2="3"></div>
+                <div class="box-body" x="1" y="3"></div>
+                <div class="vertical-line" r1="1" c1="4" r2="2" c2="4"></div>
+                <div class="box-body" x="1" y="4"></div>
+                <div class="vertical-line" r1="1" c1="5" r2="2" c2="5"></div>
+            </div>
         </div>
+
+
+        <div class="row">
+            <div class="row-head">
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="2" c1="0" r2="2" c2="1"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="2" c1="1" r2="2" c2="2"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="2" c1="2" r2="2" c2="3"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="2" c1="3" r2="2" c2="4"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="2" c1="4" r2="2" c2="5"></div>
+                <div class="empty-dot"></div>
+            </div>
+            <div class="row-body">
+                <div class="vertical-line" r1="2" c1="0" r2="3" c2="0"></div>
+                <div class="box-body" x="2" y="0"></div>
+                <div class="vertical-line" r1="2" c1="1" r2="3" c2="1"></div>
+                <div class="box-body" x="2" y="1"></div>
+                <div class="vertical-line" r1="2" c1="2" r2="3" c2="2"></div>
+                <div class="box-body" x="2" y="2"></div>
+                <div class="vertical-line" r1="2" c1="3" r2="3" c2="3"></div>
+                <div class="box-body" x="2" y="3"></div>
+                <div class="vertical-line" r1="2" c1="4" r2="3" c2="4"></div>
+                <div class="box-body" x="2" y="4"></div>
+                <div class="vertical-line" r1="2" c1="5" r2="3" c2="5"></div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="row-head">
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="3" c1="0" r2="3" c2="1"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="3" c1="1" r2="3" c2="2"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="3" c1="2" r2="3" c2="3"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="3" c1="3" r2="3" c2="4"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="3" c1="4" r2="3" c2="5"></div>
+                <div class="empty-dot"></div>
+            </div>
+            <div class="row-body">
+                <div class="vertical-line" r1="3" c1="0" r2="4" c2="0"></div>
+                <div class="box-body" x="3" y="0"></div>
+                <div class="vertical-line" r1="3" c1="1" r2="4" c2="1"></div>
+                <div class="box-body" x="3" y="1"></div>
+                <div class="vertical-line" r1="3" c1="2" r2="4" c2="2"></div>
+                <div class="box-body" x="3" y="2"></div>
+                <div class="vertical-line" r1="3" c1="3" r2="4" c2="3"></div>
+                <div class="box-body" x="3" y="3"></div>
+                <div class="vertical-line" r1="3" c1="4" r2="4" c2="4"></div>
+                <div class="box-body" x="3" y="4"></div>
+                <div class="vertical-line" r1="3" c1="5" r2="4" c2="5"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="row-head">
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="4" c1="0" r2="4" c2="1"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="4" c1="1" r2="4" c2="2"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="4" c1="2" r2="4" c2="3"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="4" c1="3" r2="4" c2="4"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="4" c1="4" r2="4" c2="5"></div>
+                <div class="empty-dot"></div>
+            </div>
+            <div class="row-body">
+                <div class="vertical-line" r1="4" c1="0" r2="5" c2="0"></div>
+                <div class="box-body" x="4" y="0"></div>
+                <div class="vertical-line" r1="4" c1="1" r2="5" c2="1"></div>
+                <div class="box-body" x="4" y="1"></div>
+                <div class="vertical-line" r1="4" c1="2" r2="5" c2="2"></div>
+                <div class="box-body" x="4" y="2"></div>
+                <div class="vertical-line" r1="4" c1="3" r2="5" c2="3"></div>
+                <div class="box-body" x="4" y="3"></div>
+                <div class="vertical-line" r1="4" c1="4" r2="5" c2="4"></div>
+                <div class="box-body" x="4" y="4"></div>
+                <div class="vertical-line" r1="4" c1="5" r2="5" c2="5"></div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="row-head">
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="5" c1="0" r2="5" c2="1"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="5" c1="1" r2="5" c2="2"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="5" c1="2" r2="5" c2="3"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="5" c1="3" r2="5" c2="4"></div>
+                <div class="empty-dot"></div>
+                <div class="horizontal-line" r1="5" c1="4" r2="5" c2="5"></div>
+                <div class="empty-dot"></div>
+            </div>
+        </div>
+
     </div>
 
-    <div class="row">
-        <div class="row-head">
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="1" c1="0" r2="1" c2="1"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="1" c1="1" r2="1" c2="2"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="1" c1="2" r2="1" c2="3"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="1" c1="3" r2="1" c2="4"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="1" c1="4" r2="1" c2="5"></div>
-            <div class="empty-dot"></div>
-        </div>
-        <div class="row-body">
-            <div class="vertical-line" r1="1" c1="0" r2="2" c2="0"></div>
-            <div class="box-body"  x="1" y="0"></div>
-            <div class="vertical-line" r1="1" c1="1" r2="2" c2="1"></div>
-            <div class="box-body" x="1" y="1"></div>
-            <div class="vertical-line" r1="1" c1="2" r2="2" c2="2"></div>
-            <div class="box-body" x="1" y="2"></div>
-            <div class="vertical-line" r1="1" c1="3" r2="2" c2="3"></div>
-            <div class="box-body" x="1" y="3"></div>
-            <div class="vertical-line" r1="1" c1="4" r2="2" c2="4"></div>
-            <div class="box-body" x="1" y="4"></div>
-            <div class="vertical-line" r1="1" c1="5" r2="2" c2="5"></div>
-        </div>
+    <div class="score-counter">
+        <div id="own-score">Your Score : 0</div>
+        <div id="opponent-score">Opponent Score : 0</div>
     </div>
-
-
-    <div class="row">
-        <div class="row-head">
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="2" c1="0" r2="2" c2="1"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="2" c1="1" r2="2" c2="2"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="2" c1="2" r2="2" c2="3"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="2" c1="3" r2="2" c2="4"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="2" c1="4" r2="2" c2="5"></div>
-            <div class="empty-dot"></div>
-        </div>
-        <div class="row-body">
-            <div class="vertical-line" r1="2" c1="0" r2="3" c2="0"></div>
-            <div class="box-body" x="2" y="0"></div>
-            <div class="vertical-line" r1="2" c1="1" r2="3" c2="1"></div>
-            <div class="box-body" x="2" y="1"></div>
-            <div class="vertical-line" r1="2" c1="2" r2="3" c2="2"></div>
-            <div class="box-body" x="2" y="2"></div>
-            <div class="vertical-line" r1="2" c1="3" r2="3" c2="3"></div>
-            <div class="box-body" x="2" y="3"></div>
-            <div class="vertical-line" r1="2" c1="4" r2="3" c2="4"></div>
-            <div class="box-body" x="2" y="4"></div>
-            <div class="vertical-line" r1="2" c1="5" r2="3" c2="5"></div>
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="row-head">
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="3" c1="0" r2="3" c2="1"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="3" c1="1" r2="3" c2="2"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="3" c1="2" r2="3" c2="3"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="3" c1="3" r2="3" c2="4"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="3" c1="4" r2="3" c2="5"></div>
-            <div class="empty-dot"></div>
-        </div>
-        <div class="row-body">
-            <div class="vertical-line" r1="3" c1="0" r2="4" c2="0"></div>
-            <div class="box-body" x="3" y="0"></div>
-            <div class="vertical-line" r1="3" c1="1" r2="4" c2="1"></div>
-            <div class="box-body" x="3" y="1"></div>
-            <div class="vertical-line" r1="3" c1="2" r2="4" c2="2"></div>
-            <div class="box-body" x="3" y="2"></div>
-            <div class="vertical-line" r1="3" c1="3" r2="4" c2="3"></div>
-            <div class="box-body" x="3" y="3"></div>
-            <div class="vertical-line" r1="3" c1="4" r2="4" c2="4"></div>
-            <div class="box-body" x="3" y="4"></div>
-            <div class="vertical-line" r1="3" c1="5" r2="4" c2="5"></div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="row-head">
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="4" c1="0" r2="4" c2="1"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="4" c1="1" r2="4" c2="2"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="4" c1="2" r2="4" c2="3"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="4" c1="3" r2="4" c2="4"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="4" c1="4" r2="4" c2="5"></div>
-            <div class="empty-dot"></div>
-        </div>
-        <div class="row-body">
-            <div class="vertical-line" r1="4" c1="0" r2="5" c2="0"></div>
-            <div class="box-body"  x="4" y="0"></div>
-            <div class="vertical-line" r1="4" c1="1" r2="5" c2="1"></div>
-            <div class="box-body"  x="4" y="1"></div>
-            <div class="vertical-line" r1="4" c1="2" r2="5" c2="2"></div>
-            <div class="box-body"  x="4" y="2"></div>
-            <div class="vertical-line" r1="4" c1="3" r2="5" c2="3"></div>
-            <div class="box-body"  x="4" y="3"></div>
-            <div class="vertical-line" r1="4" c1="4" r2="5" c2="4"></div>
-            <div class="box-body"  x="4" y="4"></div>
-            <div class="vertical-line" r1="4" c1="5" r2="5" c2="5"></div>
-        </div>
-    </div>
-
-
-
-    <div class="row">
-        <div class="row-head">
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="5" c1="0" r2="5" c2="1"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="5" c1="1" r2="5" c2="2"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="5" c1="2" r2="5" c2="3"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="5" c1="3" r2="5" c2="4"></div>
-            <div class="empty-dot"></div>
-            <div class="horizontal-line" r1="5" c1="4" r2="5" c2="5"></div>
-            <div class="empty-dot"></div>
-        </div>
-    </div>
-
-</div>
-
-<div class="score-counter">
-    <div id="own-score">Your Score : 0</div>
-    <div id="opponent-score">Opponent Score : 0</div>
 </div>
 </body>
 </html>

@@ -5,6 +5,7 @@ $(document).ready(function () {
     var socketId, opponentId = null;
     $('.overlay').hide();
     $('.modal').hide();
+    $('.spinner').hide();
     var NUM_ROWS = 5;
     var NUM_COLS = 5;
     var ownScore = 0;
@@ -15,14 +16,27 @@ $(document).ready(function () {
     $('.start-btn').click(function () {
         $('.overlay').show();
         $('.modal').show();
+        $('.spinner').show();
         socket = io.connect(url);
         socket.on('setId', function (data) {
             socketId = data;
         });
         socket.on('matchFound', function (data) {
             opponentId = data;
-            $('.overlay').hide();
-            $('.modal').hide();
+            $('.spinner').hide();
+            $('.modal').html("<p>Your Game Will start in " + 3 + "</p>");
+
+            window.setTimeout(function () {
+                $('.modal').html("<p>Your Game Will start in " + 2 + "</p>");
+                window.setTimeout(function () {
+                    $('.modal').html("<p>Your Game Will start in " + 1 + "</p>");
+                    window.setTimeout(function () {
+                        $('.overlay').hide();
+                        $('.modal').hide();
+                    }, 1000)
+
+                }, 1000)
+            }, 1000);
         });
 
         socket.on('updateBlock', function (data) {
@@ -47,7 +61,7 @@ $(document).ready(function () {
 
                         if (block.attr('clicked') === 'yes' && down_right.attr('clicked') === 'yes' && down_left.attr('clicked') === 'yes' && down_block.attr('clicked') === 'yes') {
                             $("div[x=" + data.r1 + "][y=" + data.c1 + "]").addClass(class_to_box);
-                            if(data.socketId === socketId){
+                            if (data.socketId === socketId) {
                                 last_played = opponentId;
                                 ownScore++;
                             }
@@ -65,7 +79,7 @@ $(document).ready(function () {
 
                         if (block.attr('clicked') === 'yes' && up_right.attr('clicked') === 'yes' && up_left.attr('clicked') === 'yes' && up_block.attr('clicked') === 'yes') {
                             $("div[x=" + (data.r1 - 1) + "][y=" + data.c1 + "]").addClass(class_to_box);
-                            if(data.socketId === socketId){
+                            if (data.socketId === socketId) {
                                 last_played = opponentId;
                                 ownScore++;
                             }
@@ -84,7 +98,7 @@ $(document).ready(function () {
 
                         if (block.attr('clicked') === 'yes' && top_right.attr('clicked') === 'yes' && down_right.attr('clicked') === 'yes' && right_block.attr('clicked') === 'yes') {
                             $("div[x=" + data.r1 + "][y=" + data.c1 + "]").addClass(class_to_box);
-                            if(data.socketId === socketId){
+                            if (data.socketId === socketId) {
                                 last_played = opponentId;
                                 ownScore++;
                             }
@@ -102,7 +116,7 @@ $(document).ready(function () {
                     }
                     if (block.attr('clicked') === 'yes' && top_left.attr('clicked') === 'yes' && down_left.attr('clicked') === 'yes' && left_block.attr('clicked') === 'yes') {
                         $("div[x=" + data.r1 + "][y=" + (data.c1 - 1) + "]").addClass(class_to_box);
-                        if(data.socketId === socketId){
+                        if (data.socketId === socketId) {
                             last_played = opponentId;
                             ownScore++;
                         }
@@ -126,11 +140,20 @@ $(document).ready(function () {
             }
             checkBoxFull(block, data)
 
-            $("#own-score").html("Your Score : "+ownScore);
-            $("#opponent-score").html("Opponent Score : "+opponentScore);
+            $("#own-score").html("Your Score : " + ownScore);
+            $("#opponent-score").html("Opponent Score : " + opponentScore);
 
-            if(opponentScore+opponentScore === NUM_COLS*NUM_ROWS){
-                alert("Stop Please");
+//            if (ownScore + opponentScore === NUM_COLS * NUM_ROWS) {
+            if (ownScore + opponentScore === 4) {
+                $('.overlay').show();
+                if (ownScore > opponentScore) {
+                    $('.modal').html("<div class='own-win'>You Win</div>");
+                } else {
+                    $('.modal').html("<div class='opponent-win'>You Lose</div>");
+                }
+                $('.modal').show();
+                ownScore = 0;
+                opponentScore = 0;
             }
         });
     });

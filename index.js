@@ -14,12 +14,12 @@ var gamers = {};
 io.sockets.on('connection', function (socket) {
     socket.id = shortid.generate();
     clients[socket.id] = socket;
-    if (_.size(clients) === 2) {
-
-        var gamer1 = clients[_.keys(clients)[0]];
-        var gamer2 = clients[_.keys(clients)[1]];
-        delete clients[_.keys(clients)[0]];
-        delete clients[_.keys(clients)[1]];
+    if (_.size(clients) % 2 === 0 && _.size(clients) > 0) {
+        var gamerIds = _.keys(clients);
+        var gamer1 = clients[gamerIds[0]];
+        var gamer2 = clients[gamerIds[1]];
+        delete clients[gamerIds[0]];
+        delete clients[gamerIds[0]];
 
         gamer1['opponent'] = gamer2;
         gamer2['opponent'] = gamer1;
