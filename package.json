@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
-  "author": "",
+  "author": "Anoop",
   "license": "ISC",
   "dependencies": {
     "express": "^4.4.5",
