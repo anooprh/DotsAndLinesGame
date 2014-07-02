@@ -7,7 +7,7 @@ var port = Number(process.env.PORT || 3000);
 var server = app.listen(port);
 var io = require('socket.io').listen(server);
 app.use(express.static(__dirname + '/public'));
-console.log('Express server started on port 3000');
+console.log('Express server started on port '+port);
 
 var clients = [];
 var gamers = {};
