@@ -113,16 +113,17 @@ $(document).ready(function () {
                         var top_left = $("div[r1=" + (data.r1) + "][c1=" + (data.c1 - 1) + "][r2=" + (data.r1) + "][c2=" + (data.c1) + "]");
                         var down_left = $("div[r1=" + (data.r2) + "][c1=" + (data.c2 - 1) + "][r2=" + (data.r2) + "][c2=" + (data.c2) + "]");
                         var left_block = $("div[r1=" + (data.r1) + "][c1=" + (data.c1 - 1) + "][r2=" + (data.r2) + "][c2=" + (data.c2 - 1) + "]");
-                    }
-                    if (block.attr('clicked') === 'yes' && top_left.attr('clicked') === 'yes' && down_left.attr('clicked') === 'yes' && left_block.attr('clicked') === 'yes') {
-                        $("div[x=" + data.r1 + "][y=" + (data.c1 - 1) + "]").addClass(class_to_box);
-                        if (data.socketId === socketId) {
-                            last_played = opponentId;
-                            ownScore++;
-                        }
-                        else {
-                            last_played = socketId;
-                            opponentScore++
+
+                        if (block.attr('clicked') === 'yes' && top_left.attr('clicked') === 'yes' && down_left.attr('clicked') === 'yes' && left_block.attr('clicked') === 'yes') {
+                            $("div[x=" + data.r1 + "][y=" + (data.c1 - 1) + "]").addClass(class_to_box);
+                            if (data.socketId === socketId) {
+                                last_played = opponentId;
+                                ownScore++;
+                            }
+                            else {
+                                last_played = socketId;
+                                opponentScore++
+                            }
                         }
                     }
                 }
@@ -143,8 +144,7 @@ $(document).ready(function () {
             $("#own-score").html("Your Score : " + ownScore);
             $("#opponent-score").html("Opponent Score : " + opponentScore);
 
-//            if (ownScore + opponentScore === NUM_COLS * NUM_ROWS) {
-            if (ownScore + opponentScore === 4) {
+            if (ownScore + opponentScore === NUM_COLS * NUM_ROWS) {
                 $('.overlay').show();
                 if (ownScore > opponentScore) {
                     $('.modal').html("<div class='own-win'>You Win</div>");
