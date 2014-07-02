@@ -1,6 +1,5 @@
 Try It
-
-    http://floating-mountain-5853.herokuapp.com/
+    [http://floating-mountain-5853.herokuapp.com/]
 
 Install NodeJS in your machine
 
@@ -14,7 +13,6 @@ Go to your project directory,
     node index.js   
     
 Go to
- 
-    http://localhost:3000/
+    [http://localhost:3000/]
     
     
