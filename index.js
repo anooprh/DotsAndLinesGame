@@ -59,6 +59,11 @@ io.sockets.on('connection', function (socket) {
             gamers[opponentId].emit('result', 'win');
             delete gamers[socketId];
             delete gamers[opponentId];
+            var index = clients.indexOf(socket);
+            if (index > -1) {
+                clients.splice(index, 1);
+            }
+
         } catch (e) {
             console.log("I'm thrown!! Someone please catch me :D");
         }
