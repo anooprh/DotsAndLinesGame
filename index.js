@@ -31,7 +31,7 @@ io.sockets.on('connection', function (socket) {
         gamers[gamer2.id] = gamer2;
     }
 
-    socket.emit('setId', {'self':socket.id, 'opponent':gamers[socket.id]['opponent']});
+    socket.emit('setId', socket.id);
 
     socket.on('userClick', function (data) {
         var userId = data.socketId;
