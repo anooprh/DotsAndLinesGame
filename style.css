@@ -21,19 +21,19 @@
 .horizontal-line {
     float: left;
     background: transparent;
-    /*background-color: red;*/
     width: 5em;
     height: 1em;
-    border-radius: 10px;
+    border-radius: 5px;
+    margin: 1px;
 }
 
 .vertical-line {
     float: left;
     background: transparent;
-    /*background-color: red;*/
     width: 1em;
     height: 5em;
-    border-radius: 10px;
+    border-radius: 5px;
+    margin: 1px;
 }
 .row-body {
     clear: both;
@@ -46,13 +46,16 @@
     width: 5em;
     height: 5em;
     background : transparent;
+    border-radius: 5px;
+    margin: 1px;
 }
 .empty-dot {
     float: left;
     background-color: white;
     width: 1em;
     height: 1em;
-    border-radius: 10px;
+    border-radius: 5px;
+    margin: 1px;
 }
 
 .modal {
@@ -87,6 +90,13 @@
     -khtml-opacity: 0.5;
     opacity: 0.5;
     z-index: 10;
+}
+
+.full-self {
+    background-color: gray;
+}
+.full-other {
+    background-color: brown;
 }
 
 .start-btn {
