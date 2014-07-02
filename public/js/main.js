@@ -18,6 +18,7 @@ $(document).ready(function () {
     var reloadBtn = "<button class='reload-btn' id='reload-btn' onclick='window.location.reload(true)'>Reload</button>";
 
     $('.start-btn').click(function () {
+        $(this).attr("disabled", true);
         $('.overlay').show();
         $('.modal').show();
         $('.spinner').show();
@@ -28,12 +29,11 @@ $(document).ready(function () {
         socket.on('matchFound', function (data) {
             opponentId = data;
             $('.spinner').hide();
-            $('.modal').html("<p>Your Game Will start in " + 3 + "</p>");
-
+            $('.modal').html("<p>Opponent Found</p></br>><p>Your Game Will start in " + 3 + "</p>");
             window.setTimeout(function () {
-                $('.modal').html("<p>Your Game Will start in " + 2 + "</p>");
+                $('.modal').html("<p>Opponent Found</p></br>><p>Your Game Will start in " + 2 + "</p>");
                 window.setTimeout(function () {
-                    $('.modal').html("<p>Your Game Will start in " + 1 + "</p>");
+                    $('.modal').html("<p>Opponent Found</p></br>><p>Your Game Will start in " + 1 + "</p>");
                     window.setTimeout(function () {
                         $('.overlay').hide();
                         $('.modal').hide();
