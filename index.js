@@ -5,22 +5,18 @@ var _ = require('underscore');
 var app = express();
 var server = app.listen(3000);
 var io = require('socket.io').listen(server);
-app.use(express.static(__dirname + '/'));
+app.use(express.static(__dirname + '/public'));
 console.log('Express server started on port 3000');
 
-var clients = {};
+var clients = [];
 var gamers = {};
 
 io.sockets.on('connection', function (socket) {
     socket.id = shortid.generate();
-    clients[socket.id] = socket;
+    clients.push(socket);
     if (_.size(clients) % 2 === 0 && _.size(clients) > 0) {
-        var gamerIds = _.keys(clients);
-        var gamer1 = clients[gamerIds[0]];
-        var gamer2 = clients[gamerIds[1]];
-        delete clients[gamerIds[0]];
-        delete clients[gamerIds[0]];
-
+        gamer1 = clients.pop();
+        gamer2 = clients.pop();
         gamer1['opponent'] = gamer2;
         gamer2['opponent'] = gamer1;
 
@@ -30,9 +26,7 @@ io.sockets.on('connection', function (socket) {
         gamers[gamer1.id] = gamer1;
         gamers[gamer2.id] = gamer2;
     }
-
     socket.emit('setId', socket.id);
-
     socket.on('userClick', function (data) {
         var userId = data.socketId;
         gamers[userId].emit('updateBlock', data);
