@@ -29,11 +29,11 @@ $(document).ready(function () {
         socket.on('matchFound', function (data) {
             opponentId = data;
             $('.spinner').hide();
-            $('.modal').html("<p>Opponent Found</p></br>><p>Your Game Will start in " + 3 + "</p>");
+            $('.modal').html("<p>Opponent Found</p><p>Your Game Will start in " + 3 + "</p>");
             window.setTimeout(function () {
-                $('.modal').html("<p>Opponent Found</p></br>><p>Your Game Will start in " + 2 + "</p>");
+                $('.modal').html("<p>Opponent Found</p><p>Your Game Will start in " + 2 + "</p>");
                 window.setTimeout(function () {
-                    $('.modal').html("<p>Opponent Found</p></br>><p>Your Game Will start in " + 1 + "</p>");
+                    $('.modal').html("<p>Opponent Found</p><p>Your Game Will start in " + 1 + "</p>");
                     window.setTimeout(function () {
                         $('.overlay').hide();
                         $('.modal').hide();

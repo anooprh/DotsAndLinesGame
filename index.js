@@ -47,7 +47,7 @@ io.sockets.on('connection', function (socket) {
             delete gamers[socketid];
             delete gamers[opponentId];
         } catch (e) {
-            console.log('Someone please catch me :D');
+            console.log("I'm thrown!! Someone please catch me :D");
         }
     });
 
@@ -60,7 +60,7 @@ io.sockets.on('connection', function (socket) {
             delete gamers[socketId];
             delete gamers[opponentId];
         } catch (e) {
-            console.log('Someone please catch me :D');
+            console.log("I'm thrown!! Someone please catch me :D");
         }
 
     });
