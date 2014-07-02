@@ -1,3 +1,7 @@
+Try It
+
+    http://floating-mountain-5853.herokuapp.com/
+
 Install NodeJS in your machine
 
 Git Clone the project
@@ -9,4 +13,8 @@ Go to your project directory,
     npm install 
     node index.js   
     
-Go to http://localhost:3000/
+Go to
+ 
+    http://localhost:3000/
+    
+    
