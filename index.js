@@ -3,7 +3,7 @@ var express = require('express');
 var _ = require('underscore');
 
 var app = express();
-var server = app.listen(3000);
+var server = app.listen(process.env.PORT || 3000);
 var io = require('socket.io').listen(server);
 app.use(express.static(__dirname + '/public'));
 console.log('Express server started on port 3000');
