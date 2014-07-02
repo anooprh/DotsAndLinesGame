@@ -1,17 +1,18 @@
 {
-    "name": "Boxes",
-    "version": "0.0.0",
-    "description": "",
-    "main": "index.js",
-    "author": "Anoop",
-    "license": "ISC",
-    "dependencies": {
-        "express": "^4.4.5",
-        "shortid": "^2.0.1",
-        "underscore": "^1.6.0"
-    },
-    "engines": {
-        "node": "0.10.x",
-        "npm": "1.4.9"
-    }
+  "name": "Boxes",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Anoop",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.4.5",
+    "shortid": "^2.0.1",
+    "socket.io": "^1.0.6",
+    "underscore": "^1.6.0"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.4.9"
+  }
 }
