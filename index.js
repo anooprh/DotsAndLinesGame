@@ -7,7 +7,7 @@ var port = Number(process.env.PORT || 3000);
 var server = app.listen(port);
 var io = require('socket.io').listen(server);
 app.use(express.static(__dirname + '/public'));
-console.log('Express server started on port '+port);
+console.log('Express server started on port ' + port);
 
 var clients = [];
 var gamers = {};
@@ -15,9 +15,9 @@ var gamers = {};
 io.sockets.on('connection', function (socket) {
     socket.id = shortid.generate();
     clients.push(socket);
-    if (_.size(clients) % 2 === 0 && _.size(clients) > 0) {
-        gamer1 = clients.pop();
-        gamer2 = clients.pop();
+    if (_.size(clients) > 1) {
+        gamer1 = clients.shift();
+        gamer2 = clients.shift();
         gamer1['opponent'] = gamer2;
         gamer2['opponent'] = gamer1;
 
@@ -32,5 +32,36 @@ io.sockets.on('connection', function (socket) {
         var userId = data.socketId;
         gamers[userId].emit('updateBlock', data);
         gamers[userId]['opponent'].emit('updateBlock', data);
+    });
+
+    socket.on('finishedGame', function (socketid) {
+        delete gamers[socketid];
+    });
+
+    socket.on('timedOut', function (socketId) {
+        try {
+            var opponentId = gamers[socketId]['opponent'].id;
+            gamers[socketId].emit('result', 'lose');
+            gamers[socketId]['opponent'].emit('result', 'win');
+
+            delete gamers[socketid];
+            delete gamers[opponentId];
+        } catch (e) {
+            console.log('Someone please catch me :D');
+        }
+    });
+
+    socket.on('disconnect', function () {
+        try {
+            var socketId = socket.id;
+            var opponentId = "";
+            opponentId = gamers[socketId]['opponent'].id;
+            gamers[opponentId].emit('result', 'win');
+            delete gamers[socketId];
+            delete gamers[opponentId];
+        } catch (e) {
+            console.log('Someone please catch me :D');
+        }
+
     });
 });

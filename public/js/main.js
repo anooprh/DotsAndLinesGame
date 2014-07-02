@@ -1,17 +1,21 @@
 $(document).ready(function () {
 
+
+    var NUM_ROWS = 5;
+    var NUM_COLS = 5;
+    var IDLE_TIMEOUT = 60000; // 1 Minute
     var url = window.location.protocol + "//" + window.location.hostname;
     var socket = null;
     var socketId, opponentId = null;
     $('.overlay').hide();
     $('.modal').hide();
     $('.spinner').hide();
-    var NUM_ROWS = 5;
-    var NUM_COLS = 5;
     var ownScore = 0;
     var opponentScore = 0;
 
     var last_played = null;
+
+    var reloadBtn = "<button class='reload-btn' id='reload-btn' onclick='window.location.reload(true)'>Reload</button>";
 
     $('.start-btn').click(function () {
         $('.overlay').show();
@@ -34,9 +38,29 @@ $(document).ready(function () {
                         $('.overlay').hide();
                         $('.modal').hide();
                     }, 1000)
-
                 }, 1000)
             }, 1000);
+        });
+
+        setInterval(function timerIncrement() {
+            idleTime = idleTime + 30000;
+            if (idleTime >= IDLE_TIMEOUT) { // 60 seconds
+                socket.emit('timedOut', socketId);
+            }
+        }, 30000); // 30 seconds
+
+        socket.on('result', function(result){
+            $('.overlay').show();
+           if(result === 'win'){
+               $('.modal').html("<div class='own-win'>You Win</div>" +reloadBtn);
+           } else {
+               $('.modal').html("<div class='opponent-win'>You Lose</div>"+reloadBtn);
+           }
+            $('.modal').show();
+            ownScore = 0;
+            opponentScore = 0;
+            socket.emit('finishedGame',  socketId);
+            socket.disconnect();
         });
 
         socket.on('updateBlock', function (data) {
@@ -139,7 +163,7 @@ $(document).ready(function () {
                 block.attr('clicked', 'yes');
                 last_played = data.socketId;
             }
-            checkBoxFull(block, data)
+            checkBoxFull(block, data);
 
             $("#own-score").html("Your Score : " + ownScore);
             $("#opponent-score").html("Opponent Score : " + opponentScore);
@@ -147,13 +171,15 @@ $(document).ready(function () {
             if (ownScore + opponentScore === NUM_COLS * NUM_ROWS) {
                 $('.overlay').show();
                 if (ownScore > opponentScore) {
-                    $('.modal').html("<div class='own-win'>You Win</div>");
+                    $('.modal').html("<div class='own-win'>You Win</div>"+reloadBtn);
                 } else {
-                    $('.modal').html("<div class='opponent-win'>You Lose</div>");
+                    $('.modal').html("<div class='opponent-win'>You Lose</div>"+reloadBtn);
                 }
                 $('.modal').show();
                 ownScore = 0;
                 opponentScore = 0;
+                socket.emit('finishedGame',  socketId);
+                socket.disconnect();
             }
         });
     });
@@ -181,4 +207,12 @@ $(document).ready(function () {
                 $(this).css('background', 'transparent');
             }
         });
+
+    $(this).mousemove(function (e) {
+        idleTime = 0;
+    });
+    $(this).keypress(function (e) {
+        idleTime = 0;
+    });
 });
+
