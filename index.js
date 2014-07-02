@@ -55,15 +55,15 @@ io.sockets.on('connection', function (socket) {
         try {
             var socketId = socket.id;
             var opponentId = "";
-            opponentId = gamers[socketId]['opponent'].id;
-            gamers[opponentId].emit('result', 'win');
-            delete gamers[socketId];
-            delete gamers[opponentId];
             var index = clients.indexOf(socket);
             if (index > -1) {
                 clients.splice(index, 1);
+            } else{
+                opponentId = gamers[socketId]['opponent'].id;
+                gamers[opponentId].emit('result', 'win');
+                delete gamers[socketId];
+                delete gamers[opponentId];
             }
-
         } catch (e) {
             console.log("I'm thrown!! Someone please catch me :D");
         }
