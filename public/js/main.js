@@ -152,9 +152,9 @@ $(document).ready(function () {
                     }
                 }
             }
-
+            var block;
             if (last_played !== data.socketId) {
-                var block = $("div[r1=" + data.r1 + "][c1=" + data.c1 + "][r2=" + data.r2 + "][c2=" + data.c2 + "]");
+                block = $("div[r1=" + data.r1 + "][c1=" + data.c1 + "][r2=" + data.r2 + "][c2=" + data.c2 + "]");
                 if (data.socketId === socketId) {
                     block.css('background-color', 'black');
                 } else {
